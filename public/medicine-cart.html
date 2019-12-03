@@ -1,0 +1,85 @@
+<head>
+  <script src="js/app.js"></script>
+  <script src="js/user/user-controller.js"></script>
+  <script src="js/user/medicine-controller.js"></script>
+</head>
+<div style="border: 1px solid; background-color: darkgray;"  ng-app="myApp" ng-controller="MedicineCtrl">
+
+<div class="container"  >
+  
+  <form  role="form" style="padding: 50px; margin-left: 300px;" ng-submit="addLocation()">
+    <div class="form-group">
+      <input type="text" name="medicine" placeholder="Medicine Name" ng-model="medicine.medicineName" ng-keyup="fetch(medicine)" class="form-control"   style="width: 300px;"/>      
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+  
+    <div class="form-group">
+      <input type="text" class="form-control"   name="medicine" placeholder="Company Name" ng-model="medicine.companyName"    style="width: 300px;">
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+    
+      <input type="number" class="form-control"  placeholder="Quantity" name="quantity" ng-model="medicine.quantity"  ng-keyup="inc(medicine)"  style="width: 300px;">
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Price"  name="price"  ng-model="medicine.price" style="width: 300px;">
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+    
+      <input type="text" class="form-control"  placeholder="Batch No"  name="batchNo" ng-model="medicine.batchNo"   style="width: 300px;">
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+    
+      <input type="text" class="form-control" id="pwd" placeholder="ExpiryDate" name="expDate"  ng-model="medicine.expDate"   style="width: 300px;">
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+  
+    <button class="btn btn-success"  type="submit" style="width: 100px;"  > Add To Cart </button>
+  
+
+    <button type="reset" class="btn btn-danger" style="width: 100px; ">Reset</button>
+
+   
+  
+  </form>
+</div>
+<div class="container">
+  <div class="col-lg-12"> 
+    <table class="table table-bordered table-striped" style="border:1px solid black;">
+      <tr>
+          <th>Medicne</th>
+          <th>Company Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Batch No</th>
+          <th>Expirary DAte</th>
+         
+      </tr>
+
+      <tbody>
+          <tr ng-repeat="location in cart.location" >
+            <td><input type="text" name="medicine"   ng-model="location.medicineName" class="form-control"></td>
+            <td><input type="text" name="medicine"   ng-model="location.companyName" class="form-control"></td>
+            <td><input type="text" name="medicine"   ng-model="location.price" class="form-control"></td>
+            <td><input type="text" name="medicine"   ng-model="location.quantity" class="form-control"></td>
+            <td><input type="text" name="medicine"   ng-model="location.batchNo" class="form-control"> </td>
+            <td><input type="text" name="medicine"   ng-model="location.expDate" class="form-control"></td>
+          </tr>
+      </tbody>
+   
+    </table>
+    <button class="btn btn-success"  type="submit" ng-click=save(location) style="width: 100px; float: right;">Check Out </button>
+  </div>
+  
+
+ </div>
+</div>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+</head>
+<body>
+
+<div class="container"  >
+  
+  <div style="border: 1px solid; background-color: darkgray;"  ng-app="myApp" ng-controller="MedicineCtrl">
+    <div class="form-group">
+      <input type="text" class="form-control"  placeholder="Enter Medicine Name" name="uname" ng-model="medicine.medicineName"  style="width: 300px;">
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control"  placeholder="Company Name"  ng-model="medicine.companyName"    style="width: 300px;">
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Price" name="price"   ng-model="medicine.price" style="width: 300px;">
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+    
+      <input type="text" class="form-control"  placeholder="Batch No" name="batchNo" ng-model="medicine.batchNo"   style="width: 300px;">
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-group">
+    
+      <input type="text" class="form-control" id="pwd" placeholder="ExpiryDate" name="Edate" ng-model="medicine.expDate"   style="width: 300px;">
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <button class="btn btn-success" type="submit"style="width: 100px;" name="done" ng-hide="update" ng-click="save(medicine)"> Add </button>
+    <button type="submit" class="btn btn-danger" style="width: 100px; ">Back</button>
+
+   
+  
+  
+</div>
+</div>
+
+<script>
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Get the forms we want to add validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+</script>
+
+</body>
+</html>
