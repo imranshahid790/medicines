@@ -4,16 +4,16 @@ var mongoose = require('mongoose');
   
 
   var cartA = new Schema({
- 
-  
-      
-         medicineName:String,
-        companyName: String,
-        batchNo: String,
-        price: String,
-        expDate: String,
-        quantity: String,
-
+    
+    medicineName: { type: Array, required: true },
+    companyName: { type: Array, required: true },
+    batchNo: { type: Array, required: true },
+    price: { type: Array, required: true },
+    batchNo: { type: Array, required: true },
+    expDate: { type: Array, required: true },
+    quantity: { type: Array, required: true },
+    
+   
   });
 
   

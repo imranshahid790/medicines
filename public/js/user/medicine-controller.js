@@ -11,12 +11,12 @@ app.controller('MedicineCtrl', function($scope,$http)
 
  
   $scope.cart = {};
-  $scope.cart.location = [];
+  $scope.cart = [];
 
   
   $scope.addLocation = () => 
   {
-    $scope.cart.location.push({
+    $scope.cart.push({
       medicineName: $scope.medicine.medicineName,
       companyName: $scope.medicine.companyName,
       price: $scope.medicine.price,
@@ -30,48 +30,28 @@ app.controller('MedicineCtrl', function($scope,$http)
    
   }
 
-    $scope.save=function(medicine)
-    {
-        console.log("hi")
-        var data = medicine;
-    
-            method = 'POST';
-            url = '/medicine';
-        
-        $http({method: method, url: url,data : data,headers: {'Content-Type': 'application/json'}}).
-        then(function(response)
-        {
-            $scope.status = response.status;
-            $scope.data = response.data;
-            alert('Medicine');
-        }, function(response) 
-        {
-        $scope.data = response.data || 'Request failed';
-        $scope.status = response.status;
-        alert('error Medicine');
-    });
-}  
-$scope.save=function(location)
-{
-    console.log("hi")
-    var data = location;
+ 
+// $scope.save=function(medicine)
+// {
+//     console.log("hi")
+//     var data = medicine;
 
-        method = 'POST';
-        url = '/medicine';
+//         method = 'POST';
+//         url = '/medicine';
     
-    $http({method: method, url: url,data : data,headers: {'Content-Type': 'application/json'}}).
-    then(function(response)
-    {
-        $scope.status = response.status;
-        $scope.data = response.data;
-        alert('Medicine');
-    }, function(response) 
-    {
-    $scope.data = response.data || 'Request failed';
-    $scope.status = response.status;
-    alert('error Medicine');
-});
-}  
+//     $http({method: method, url: url,data : data,headers: {'Content-Type': 'application/json'}}).
+//     then(function(response)
+//     {
+//         $scope.status = response.status;
+//         $scope.data = response.data;
+//         alert('Medicine');
+//     }, function(response) 
+//     {
+//     $scope.data = response.data || 'Request failed';
+//     $scope.status = response.status;
+//     alert('error Medicine');
+// });
+// }  
 $scope.fetch=function(medicine)
 {
     // search find by name
@@ -98,11 +78,13 @@ $scope.inc = function(medicine)
      console.log('ads');
      medicine.price = medicine.quantity * medicine.price;
   }
-    
-$scope.save=function(location)
+
+ 
+
+$scope.save=function(cart)
 {
-    console.log("hi")
-    var data =location;
+      alert(JSON.stringify(cart));
+    var data = cart;
          method = 'POST';
         url = '/cart';
 
@@ -111,7 +93,7 @@ $scope.save=function(location)
     {
         $scope.status = response.status;
         $scope.data = response.data;
-        alert('cart');
+        alert('data successfull ');
     }, function(response) 
     {
     $scope.data = response.data || 'Request failed';
